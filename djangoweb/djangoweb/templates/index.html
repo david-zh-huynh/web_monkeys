@@ -178,19 +178,19 @@
             <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
-        {% for team from teams %}
         <div class="row">
+            {% for team in teams %}
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img alt="..." class="mx-auto rounded-circle" src="{% static '/img/team/1.jpg' %}"/>
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
+                    <img alt="..." class="mx-auto rounded-circle" src="{{ team.image.url }}"/>
+                    <h4>{{ team.name }}</h4>
+                    <p class="text-muted">{{ team.role }}</p>
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-          {% endfor %}
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet,
@@ -205,7 +205,8 @@
         <div class="row align-items-center">
             <div class="col-md-3 col-sm-6 my-3">
                 <a href="#!"><img alt="..."
-                                  class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/microsoft.svg' %}"/></a>
+                                  class="img-fluid img-brand d-block mx-auto"
+                                  src="{% static '/img/logos/microsoft.svg' %}"/></a>
             </div>
             <div class="col-md-3 col-sm-6 my-3">
                 <a href="#!"><img alt="..." class="img-fluid img-brand d-block mx-auto"
@@ -213,7 +214,8 @@
             </div>
             <div class="col-md-3 col-sm-6 my-3">
                 <a href="#!"><img alt="..."
-                                  class="img-fluid img-brand d-block mx-auto" src="{% static '/img/logos/facebook.svg' %}"/></a>
+                                  class="img-fluid img-brand d-block mx-auto"
+                                  src="{% static '/img/logos/facebook.svg' %}"/></a>
             </div>
             <div class="col-md-3 col-sm-6 my-3">
                 <a href="#!"><img alt="..." class="img-fluid img-brand d-block mx-auto"
@@ -233,24 +235,28 @@
             <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input class="form-control" data-validation-required-message="Please enter your name." id="name" placeholder="Your Name *" required="required"
+                        <input class="form-control" data-validation-required-message="Please enter your name." id="name"
+                               placeholder="Your Name *" required="required"
                                type="text"/>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" data-validation-required-message="Please enter your email address." id="email" placeholder="Your Email *"
+                        <input class="form-control" data-validation-required-message="Please enter your email address."
+                               id="email" placeholder="Your Email *"
                                required="required" type="email"/>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group mb-md-0">
-                        <input class="form-control" data-validation-required-message="Please enter your phone number." id="phone" placeholder="Your Phone *" required="required"
+                        <input class="form-control" data-validation-required-message="Please enter your phone number."
+                               id="phone" placeholder="Your Phone *" required="required"
                                type="tel"/>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" data-validation-required-message="Please enter a message." id="message" placeholder="Your Message *"
+                        <textarea class="form-control" data-validation-required-message="Please enter a message."
+                                  id="message" placeholder="Your Message *"
                                   required="required"></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
@@ -276,6 +282,8 @@
                 <script>
                             document.write(new Date().getFullYear());
 
+
+
                 </script>
             </div>
             <div class="col-lg-4 my-3 my-lg-0">
@@ -293,7 +301,8 @@
 <!-- Portfolio Modals-->
 <!-- Modals-->
 {% for portfoliomodal in portfoliomodals %}
-<div aria-hidden="true" class="portfolio-modal modal fade" id="portfolioModal{{forloop.counter}}" role="dialog" tabindex="-1">
+<div aria-hidden="true" class="portfolio-modal modal fade" id="portfolioModal{{forloop.counter}}" role="dialog"
+     tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal"><img alt="Close modal"
@@ -311,7 +320,7 @@
                             <ul class="list-inline">
                                 <li>Date: {{ portfoliomodal.date }}</li>
                                 <li>Client: {{ portfoliomodal.client }}</li>
-                                <li>Category: {{ portfoliomodal.category }} </li>
+                                <li>Category: {{ portfoliomodal.category }}</li>
                             </ul>
                             <button class="btn btn-primary" data-dismiss="modal" type="button">
                                 <i class="fas fa-times mr-1"></i>
